@@ -1,0 +1,30 @@
+[
+  {
+    "query": "efek samping vaksin campak",
+    "relevant_doc_ids": ["1", "5", "12", "18", "25", "40"]
+  },
+  {
+    "query": "vaksin mr bikin autis",
+    "relevant_doc_ids": ["2", "10", "15", "22", "30", "45"]
+  },
+  {
+    "query": "jadwal imunisasi campak anak",
+    "relevant_doc_ids": ["3", "7", "14", "20", "28", "35"]
+  },
+  {
+    "query": "vaksin campak halal atau haram",
+    "relevant_doc_ids": ["4", "8", "16", "24", "32", "48"]
+  },
+  {
+    "query": "bahaya tidak vaksin campak",
+    "relevant_doc_ids": ["6", "11", "19", "27", "33", "50"]
+  },
+  {
+    "query": "gejala campak rubella",
+    "relevant_doc_ids": ["9", "13", "21", "29", "38", "42"]
+  },
+  {
+    "query": "biaya vaksin campak di puskesmas",
+    "relevant_doc_ids": ["17", "23", "26", "31", "36", "49"]
+  }
+]
