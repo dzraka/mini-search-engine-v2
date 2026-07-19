@@ -33,14 +33,14 @@ document.addEventListener("DOMContentLoaded", function () {
   semanticBtn.addEventListener("click", () => setMethod("semantic"));
   evaluateBtn.addEventListener("click", runEvaluation);
 
-  const activeClasses = "bg-[#004ac6]/90 text-white shadow-md shadow-blue-300".split(" ");
-  const inactiveClasses = "text-slate-600 hover:bg-slate-200/50 hover:text-slate-900 hover:cursor-pointer".split(" ");
+  const activeClasses = "bg-blue-600/90 text-white shadow-md shadow-blue-900/50".split(" ");
+  const inactiveClasses = "text-slate-400 hover:bg-slate-700/50 hover:text-slate-200 hover:cursor-pointer".split(" ");
 
   function updateButtonState(btn, isActive) {
     if (isActive) {
       btn.classList.remove(...inactiveClasses);
       // Also remove the malformed 'hover:' if it exists
-      btn.classList.remove("hover:", "cursor-pointer"); 
+      btn.classList.remove("hover:", "cursor-pointer");
       btn.classList.add(...activeClasses);
     } else {
       btn.classList.remove(...activeClasses);
@@ -118,27 +118,27 @@ document.addEventListener("DOMContentLoaded", function () {
         resultInfo.innerHTML = "<p>Hasil Evaluasi Sistem</p>";
         evaluateContainer.innerHTML = `
           <h3>Metrik Evaluasi (Berdasarkan Ground Truth)</h3>
-          <table class="w-full border-collapse mt-4 text-sm text-left rounded-xl overflow-hidden shadow-sm border border-slate-200/60">
+          <table class="w-full border-collapse mt-4 text-sm text-left rounded-xl overflow-hidden shadow-sm border border-slate-700/60">
             <thead>
               <tr>
-                <th class="bg-slate-50 px-5 py-4 font-semibold text-slate-700 border-b border-slate-200/60">Metode</th>
-                <th class="bg-slate-50 px-5 py-4 font-semibold text-slate-700 border-b border-slate-200/60">MAP</th>
-                <th class="bg-slate-50 px-5 py-4 font-semibold text-slate-700 border-b border-slate-200/60">MRR</th>
-                <th class="bg-slate-50 px-5 py-4 font-semibold text-slate-700 border-b border-slate-200/60">NDCG@5</th>
+                <th class="bg-slate-800 px-5 py-4 font-semibold text-slate-300 border-b border-slate-700/60">Metode</th>
+                <th class="bg-slate-800 px-5 py-4 font-semibold text-slate-300 border-b border-slate-700/60">MAP</th>
+                <th class="bg-slate-800 px-5 py-4 font-semibold text-slate-300 border-b border-slate-700/60">MRR</th>
+                <th class="bg-slate-800 px-5 py-4 font-semibold text-slate-300 border-b border-slate-700/60">NDCG@5</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="px-5 py-4 border-b border-slate-100 text-slate-600 bg-white/60 backdrop-blur-sm"><strong>TF-IDF</strong></td>
-                <td class="px-5 py-4 border-b border-slate-100 text-slate-600 bg-white/60 backdrop-blur-sm">${metrics.tfidf.map.toFixed(4)}</td>
-                <td class="px-5 py-4 border-b border-slate-100 text-slate-600 bg-white/60 backdrop-blur-sm">${metrics.tfidf.mrr.toFixed(4)}</td>
-                <td class="px-5 py-4 border-b border-slate-100 text-slate-600 bg-white/60 backdrop-blur-sm">${metrics.tfidf.ndcg_5.toFixed(4)}</td>
+                <td class="px-5 py-4 border-b border-slate-700/50 text-slate-300 bg-slate-800/60 backdrop-blur-sm"><strong>TF-IDF</strong></td>
+                <td class="px-5 py-4 border-b border-slate-700/50 text-slate-300 bg-slate-800/60 backdrop-blur-sm">${metrics.tfidf.map.toFixed(4)}</td>
+                <td class="px-5 py-4 border-b border-slate-700/50 text-slate-300 bg-slate-800/60 backdrop-blur-sm">${metrics.tfidf.mrr.toFixed(4)}</td>
+                <td class="px-5 py-4 border-b border-slate-700/50 text-slate-300 bg-slate-800/60 backdrop-blur-sm">${metrics.tfidf.ndcg_5.toFixed(4)}</td>
               </tr>
               <tr>
-                <td class="px-5 py-4 border-b border-slate-100 text-slate-600 bg-white/60 backdrop-blur-sm"><strong>IndoBERT (Semantic)</strong></td>
-                <td class="px-5 py-4 border-b border-slate-100 text-slate-600 bg-white/60 backdrop-blur-sm">${metrics.semantic.map.toFixed(4)}</td>
-                <td class="px-5 py-4 border-b border-slate-100 text-slate-600 bg-white/60 backdrop-blur-sm">${metrics.semantic.mrr.toFixed(4)}</td>
-                <td class="px-5 py-4 border-b border-slate-100 text-slate-600 bg-white/60 backdrop-blur-sm">${metrics.semantic.ndcg_5.toFixed(4)}</td>
+                <td class="px-5 py-4 border-b border-slate-700/50 text-slate-300 bg-slate-800/60 backdrop-blur-sm"><strong>IndoBERT (Semantic)</strong></td>
+                <td class="px-5 py-4 border-b border-slate-700/50 text-slate-300 bg-slate-800/60 backdrop-blur-sm">${metrics.semantic.map.toFixed(4)}</td>
+                <td class="px-5 py-4 border-b border-slate-700/50 text-slate-300 bg-slate-800/60 backdrop-blur-sm">${metrics.semantic.mrr.toFixed(4)}</td>
+                <td class="px-5 py-4 border-b border-slate-700/50 text-slate-300 bg-slate-800/60 backdrop-blur-sm">${metrics.semantic.ndcg_5.toFixed(4)}</td>
               </tr>
             </tbody>
           </table>
@@ -176,11 +176,11 @@ document.addEventListener("DOMContentLoaded", function () {
           infoContent = `Similarity: ${doc.score}`;
         }
         return `
-        <div class="bg-white/70 backdrop-blur-md p-5 rounded-2xl shadow-sm border border-white/50 flex flex-col sm:flex-row justify-between items-start gap-4 transition-all hover:shadow-md hover:bg-white hover:-translate-y-0.5 mb-4 w-full">
-          <div class="flex-1 text-gray-700 text-[15px] leading-relaxed">
+        <div class="bg-slate-800/70 backdrop-blur-md p-5 rounded-2xl shadow-sm border border-slate-700/50 flex flex-col sm:flex-row justify-between items-start gap-4 transition-all hover:shadow-md hover:bg-slate-800 hover:-translate-y-0.5 mb-4 w-full">
+          <div class="flex-1 text-slate-300 text-[15px] leading-relaxed">
             <p>${doc.komentar}</p>
           </div>
-          <div class="bg-blue-50/80 text-blue-700 font-semibold px-3 py-1.5 rounded-lg text-xs whitespace-nowrap border border-blue-100/50">${infoContent}</div>
+          <div class="bg-blue-900/40 text-blue-300 font-semibold px-3 py-1.5 rounded-lg text-xs whitespace-nowrap border border-blue-800/50">${infoContent}</div>
         </div>
       `;
       })
@@ -196,8 +196,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function displayPagination(currentPageNum, totalPages, isSearch) {
     let paginationHTML = '<div class="flex justify-center items-center gap-4">';
-    const btnClass = "px-5 py-2.5 bg-white border border-slate-200/60 rounded-xl text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:text-blue-600 transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed";
-    const spanClass = "text-sm font-medium text-slate-500 bg-white/50 px-4 py-2 rounded-xl border border-slate-100";
+    const btnClass = "px-5 py-2.5 bg-slate-800 border border-slate-700/60 rounded-xl text-sm font-semibold text-slate-300 hover:bg-slate-700 hover:text-blue-400 transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed";
+    const spanClass = "text-sm font-medium text-slate-400 bg-slate-800/50 px-4 py-2 rounded-xl border border-slate-700";
 
     if (currentPageNum > 1) {
       paginationHTML += `<button class="${btnClass}" onclick="previousPage(${isSearch})">← Sebelumnya</button>`;
